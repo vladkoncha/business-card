@@ -1,1 +1,10 @@
-{ "extends": ["stylelint-config-standard"] }
+{
+  "plugins": ["stylelint-less"],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "at-rule-empty-line-before": null,
+    "import-notation": null
+  },
+  "extends": ["stylelint-config-idiomatic-order", "stylelint-config-standard"],
+  "ignoreFiles": ["out/**/*"]
+}
