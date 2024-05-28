@@ -1,0 +1,25 @@
+@import '@/globals';
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: all 0.15s ease-in-out;
+
+  &:focus-visible,
+  &:hover {
+    filter: invert(100%) drop-shadow(0 0 0.1rem @brand-black);
+  }
+}

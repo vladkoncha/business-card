@@ -1,13 +1,16 @@
 @import '@/globals';
 
+@frame-padding: 2rem;
+
 .person-frame-wrapper {
   display: grid;
   width: 100%;
-  padding: 2rem;
+  padding: @frame-padding;
   border-radius: 0.5rem;
   background-color: @desktop-card-white;
   gap: 1.5rem;
   grid-template-columns: 43% 1fr;
+  grid-template-rows: auto auto;
 }
 
 .logo-wrapper {
@@ -30,7 +33,7 @@
 .hr {
   position: relative;
   right: 1.5rem;
-  width: calc(100% + 3.5rem);
+  width: calc(100% + @frame-padding + 1.5rem);
   background-color: @brand-black;
 }
 
@@ -132,4 +135,15 @@
 .degree::before {
   content: url('/src/assets/icons/user.svg');
   .icon();
+}
+
+.footer-wrapper {
+  grid-column: 1 / 3;
+}
+
+.footer-hr {
+  position: relative;
+  right: @frame-padding;
+  width: calc(100% + @frame-padding * 2);
+  margin-block-end: 1.5rem;
 }

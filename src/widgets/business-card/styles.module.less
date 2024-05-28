@@ -1,3 +1,5 @@
+@import '@/globals';
+
 @max-card-width: 40.5rem;
 
 .card-wrapper {
@@ -9,4 +11,42 @@
   width: 100%;
   justify-content: space-between;
   margin-block-end: 1rem;
+}
+
+.switch-frame-button {
+  display: flex;
+  align-items: center;
+  border: 0;
+  background-color: transparent;
+  color: @brand-white;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 120%;
+  transition: all 0.1s ease-in-out;
+
+  &:focus-visible,
+  &:hover {
+    filter: contrast(50%);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.about-employee-button::before {
+  display: inline-block;
+  width: 1rem;
+  height: fit-content;
+  margin-right: 0.75rem;
+  content: url('/src/assets/icons/left-arrow.svg');
+}
+
+.about-company-button::after {
+  display: inline-block;
+  width: 1rem;
+  height: fit-content;
+  margin-left: 0.75rem;
+  content: url('/src/assets/icons/right-arrow.svg');
 }

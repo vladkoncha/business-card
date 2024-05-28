@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { AddToContactsButton } from '@/features/person';
 import { Loader } from '@/shared/ui/loader';
 
+import { Footer } from '../footer';
 import styles from './styles.module.less';
 import { PersonFrameProps } from './types';
 import { PersonImage } from './ui/person-image';
@@ -11,7 +12,7 @@ export const PersonFrame = ({ personData, logoSrc }: PersonFrameProps) => {
   const [isLogoLoading, setIsLogoLoading] = useState(true);
 
   return (
-    <div className={styles['person-frame-wrapper']}>
+    <section className={styles['person-frame-wrapper']}>
       <div>
         <PersonImage src="src/assets/person.jpg" />
         <AddToContactsButton
@@ -88,6 +89,10 @@ export const PersonFrame = ({ personData, logoSrc }: PersonFrameProps) => {
           </div>
         )}
       </div>
-    </div>
+      <div className={styles['footer-wrapper']}>
+        <hr className={styles['footer-hr']} />
+        <Footer />
+      </div>
+    </section>
   );
 };
