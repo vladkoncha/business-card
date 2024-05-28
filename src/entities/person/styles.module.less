@@ -1,0 +1,135 @@
+@import '@/globals';
+
+.person-frame-wrapper {
+  display: grid;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: @desktop-card-white;
+  gap: 1.5rem;
+  grid-template-columns: 43% 1fr;
+}
+
+.logo-wrapper {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  max-width: 17.5rem;
+  height: 2.875rem;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  margin-block-end: 1rem;
+}
+
+.image {
+  height: 100%;
+}
+
+.hr {
+  position: relative;
+  right: 1.5rem;
+  width: calc(100% + 3.5rem);
+  background-color: @brand-black;
+}
+
+.person-data-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.loader-wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  margin-block-start: 1.5rem;
+}
+
+.person-text-data {
+  margin-block-start: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  color: @brand-black;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 120%;
+  margin-block-end: 0.75rem;
+}
+
+.job-title {
+  color: #455773;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 120%;
+  margin-block-end: 1.375rem;
+}
+
+.person-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  color: @brand-black;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  gap: 0.75rem;
+  line-height: 120%;
+  flex-grow: 1;
+  justify-content: space-between;
+
+  & > * {
+    display: flex;
+    align-items: center;
+  }
+
+  & > a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.icon {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.75rem;
+}
+
+.mobile::before {
+  content: url('/src/assets/icons/mobile.svg');
+  .icon();
+}
+
+.phone::before {
+  content: url('/src/assets/icons/phone.svg');
+  .icon();
+}
+
+.email::before {
+  content: url('/src/assets/icons/email.svg');
+  .icon();
+}
+
+.website::before {
+  content: url('/src/assets/icons/link.svg');
+  .icon();
+}
+
+.address::before {
+  content: url('/src/assets/icons/location.svg');
+  .icon();
+}
+
+.date::before {
+  content: url('/src/assets/icons/calendar.svg');
+  .icon();
+}
+
+.degree::before {
+  content: url('/src/assets/icons/user.svg');
+  .icon();
+}
