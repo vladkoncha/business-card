@@ -42,7 +42,7 @@ export const PersonFrame = ({ personData, logoSrc }: PersonFrameProps) => {
       {isMobile && logo}
       <div className={styles['person-data-grid']}>
         <div>
-          <PersonImage src="src/assets/person.jpg" />
+          <PersonImage src="./assets/person.jpg" />
           {!isMobile ? (
             addToContactsButton
           ) : (
@@ -70,34 +70,31 @@ export const PersonFrame = ({ personData, logoSrc }: PersonFrameProps) => {
 
               {isMobile && <hr className={styles.hr} />}
               <div className={styles['person-info-wrapper']}>
-                <IconWrapper iconSrc="src/assets/icons/mobile.svg">
+                <IconWrapper iconSrc="./assets/icons/mobile.svg">
                   <a href={`tel:${personData.mobileNumber}`}>
                     {personData.mobileNumber}
                   </a>
                 </IconWrapper>
                 {personData.phoneNumbers.map((number) => (
-                  <IconWrapper
-                    key={number}
-                    iconSrc="src/assets/icons/phone.svg"
-                  >
+                  <IconWrapper key={number} iconSrc="./assets/icons/phone.svg">
                     <a href={`tel:${number}`}>{number}</a>
                   </IconWrapper>
                 ))}
-                <IconWrapper iconSrc="src/assets/icons/email.svg">
+                <IconWrapper iconSrc="./assets/icons/email.svg">
                   <a href={`mailto:${personData.email}`}>{personData.email}</a>
                 </IconWrapper>
-                <IconWrapper iconSrc="src/assets/icons/link.svg">
+                <IconWrapper iconSrc="./assets/icons/link.svg">
                   <a href={personData.website}>{personData.website}</a>
                 </IconWrapper>
-                <IconWrapper iconSrc="src/assets/icons/location.svg">
+                <IconWrapper iconSrc="./assets/icons/location.svg">
                   <a href={personData.address.link}>
                     {personData.address.label}
                   </a>
                 </IconWrapper>
-                <IconWrapper iconSrc="src/assets/icons/calendar.svg">
+                <IconWrapper iconSrc="./assets/icons/calendar.svg">
                   <p>{personData.birthdate.toLocaleDateString('ru-RU')}</p>
                 </IconWrapper>
-                <IconWrapper iconSrc="src/assets/icons/user.svg">
+                <IconWrapper iconSrc="./assets/icons/user.svg">
                   <p>{personData.degree}</p>
                 </IconWrapper>
               </div>

@@ -29,7 +29,7 @@ export const Footer = ({ socialLinks }: FooterProps) => {
         >
           <img
             className={styles.icon}
-            src={`src/assets/icons/footer/${LINKS_ICONS[link]}`}
+            src={`./assets/icons/footer/${LINKS_ICONS[link]}`}
           />
         </a>
       ))}

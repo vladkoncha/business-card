@@ -1,7 +1,7 @@
 import { CompanyData } from '../model/company-data';
 
 export const COMPANY_DATA: CompanyData = {
-  logoSrc: 'src/assets/logo.svg',
+  logoSrc: './assets/logo.svg',
   name: 'Название компании',
   description: 'Описание компании',
   phoneNumber: '+7 (000) 000-00-00',

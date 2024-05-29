@@ -47,29 +47,29 @@ export const CompanyFrame = ({ companyData }: CompanyFrameProps) => {
         {companyData ? (
           <div className={styles['company-text-data']}>
             <div className={styles['company-info-wrapper']}>
-              <IconWrapper iconSrc="src/assets/icons/phone.svg">
+              <IconWrapper iconSrc="./assets/icons/phone.svg">
                 <a href={`tel:${companyData.phoneNumber}`}>
                   {companyData.phoneNumber}
                 </a>
               </IconWrapper>
-              <IconWrapper iconSrc="src/assets/icons/email.svg">
+              <IconWrapper iconSrc="./assets/icons/email.svg">
                 <a href={`mailto:${companyData.email}`}>{companyData.email}</a>
               </IconWrapper>
-              <IconWrapper iconSrc="src/assets/icons/link.svg">
+              <IconWrapper iconSrc="./assets/icons/link.svg">
                 <a href={companyData.website}>{companyData.website}</a>
               </IconWrapper>
-              <IconWrapper iconSrc="src/assets/icons/location.svg">
+              <IconWrapper iconSrc="./assets/icons/location.svg">
                 <a href={companyData.address.link}>
                   {companyData.address.label}
                 </a>
               </IconWrapper>
-              <IconWrapper iconSrc="src/assets/icons/calendar.svg">
+              <IconWrapper iconSrc="./assets/icons/calendar.svg">
                 <p>{companyData.foundingDate.toLocaleDateString('ru-RU')}</p>
               </IconWrapper>
-              <IconWrapper iconSrc="src/assets/icons/user.svg">
+              <IconWrapper iconSrc="./assets/icons/user.svg">
                 <p>{companyData.clients.join(' ')}</p>
               </IconWrapper>
-              <IconWrapper iconSrc="src/assets/icons/fax.svg">
+              <IconWrapper iconSrc="./assets/icons/fax.svg">
                 <a href={`tel:${companyData.fax}`}>{companyData.fax}</a>
               </IconWrapper>
             </div>
