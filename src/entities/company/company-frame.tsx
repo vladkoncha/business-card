@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { useIsMobile } from '@/shared/hooks/use-is-mobile';
 import { IconWrapper } from '@/shared/ui/icon-wrapper';
 import { Loader } from '@/shared/ui/loader';
 
@@ -9,28 +10,32 @@ import { CompanyFrameProps } from './types';
 
 export const CompanyFrame = ({ companyData }: CompanyFrameProps) => {
   const [isLogoLoading, setIsLogoLoading] = useState(true);
+  const isMobile = useIsMobile();
 
   return (
     <section className={styles['company-frame-wrapper']}>
-      <hr className={styles.hr} />
+      {!isMobile && <hr className={styles.hr} />}
 
       <div className={styles['company-data-grid']}>
         <div className={styles['left-column-wrapper']}>
-          <div className={styles['logo-wrapper']}>
-            {isLogoLoading && <Loader />}
+          {!isMobile && (
+            <div className={styles['logo-wrapper']}>
+              {isLogoLoading && <Loader />}
 
-            <img
-              className={styles.image}
-              src={companyData?.logoSrc}
-              alt=""
-              onLoad={() => setIsLogoLoading(false)}
-              style={{ visibility: isLogoLoading ? 'hidden' : 'visible' }}
-            />
-          </div>
+              <img
+                className={styles.image}
+                src={companyData?.logoSrc}
+                alt=""
+                onLoad={() => setIsLogoLoading(false)}
+                style={{ visibility: isLogoLoading ? 'hidden' : 'visible' }}
+              />
+            </div>
+          )}
           {companyData ? (
             <div>
               <h2 className={styles.name}>{companyData.name}</h2>
               <p className={styles.description}>{companyData.description}</p>
+              {isMobile && <hr className={styles.hr} />}
             </div>
           ) : (
             <div className={styles['loader-wrapper']}>

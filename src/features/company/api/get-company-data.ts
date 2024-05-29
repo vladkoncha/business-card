@@ -5,6 +5,6 @@ export const getCompanyData = async () => {
   return new Promise<CompanyData>((resolve) => {
     setTimeout(() => {
       resolve(COMPANY_DATA);
-    }, 2_000);
+    }, 1_800);
   });
 };
