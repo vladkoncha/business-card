@@ -1,12 +1,10 @@
 @import '@/globals';
 
-.add-contact-button {
+.button {
   width: 100%;
   padding: 1.125rem 0;
   border: 0;
   border-radius: 0.5rem;
-  background-color: @brand-black;
-  color: @brand-white;
   cursor: pointer;
   font-size: 0.75rem;
   font-weight: 700;
@@ -26,5 +24,26 @@
 
   &:disabled {
     cursor: not-allowed;
+  }
+}
+
+.primary {
+  background-color: @brand-black;
+  color: @brand-white;
+}
+
+.secondary {
+  background-color: @brand-white;
+  color: @brand-black;
+}
+
+@media screen and (width <= 678px) {
+  .button {
+    padding: 1rem 1.3125rem;
+    text-wrap: pretty;
+  }
+
+  .secondary {
+    box-shadow: 0 0.25rem 0.35rem #00000003;
   }
 }

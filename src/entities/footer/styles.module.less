@@ -1,9 +1,12 @@
 @import '@/globals';
 
+@icon-size-desktop: 1.5rem;
+@icon-size-mobile: 3.25rem;
+
 .footer {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(@icon-size-desktop, 1fr));
 }
 
 .link {
@@ -17,12 +20,26 @@
 }
 
 .icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: @icon-size-desktop;
+  height: @icon-size-desktop;
   transition: all 0.15s ease-in-out;
 
   &:focus-visible,
   &:hover {
     filter: invert(100%) drop-shadow(0 0 0.1rem @brand-black);
+  }
+}
+
+@media screen and (width <= 678px) {
+  .footer {
+    display: grid;
+    padding: 0 1rem 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(@icon-size-mobile, 1fr));
+    place-items: center center;
+  }
+
+  .icon {
+    width: @icon-size-mobile;
+    height: @icon-size-mobile;
   }
 }

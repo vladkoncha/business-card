@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-import { AddToContactsButton } from '@/features/person';
+import { AddToContactsButton, CallButton } from '@/features/person';
+import { useIsMobile } from '@/shared/hooks/use-is-mobile';
 import { IconWrapper } from '@/shared/ui/icon-wrapper';
 import { Loader } from '@/shared/ui/loader';
 
@@ -11,32 +12,52 @@ import { PersonImage } from './ui/person-image';
 
 export const PersonFrame = ({ personData, logoSrc }: PersonFrameProps) => {
   const [isLogoLoading, setIsLogoLoading] = useState(true);
+  const isMobile = useIsMobile();
+
+  const logo = (
+    <div className={styles['logo-wrapper']}>
+      {isLogoLoading && <Loader />}
+
+      <img
+        className={styles.image}
+        src={logoSrc}
+        alt=""
+        onLoad={() => setIsLogoLoading(false)}
+        style={{ visibility: isLogoLoading ? 'hidden' : 'visible' }}
+      />
+    </div>
+  );
+
+  const addToContactsButton = (
+    <AddToContactsButton
+      name={personData ? `${personData.surname} ${personData.name}` : ''}
+      phone={personData?.mobileNumber}
+      email={personData?.email}
+      isDisabled={!personData}
+    />
+  );
 
   return (
     <section className={styles['person-frame-wrapper']}>
+      {isMobile && logo}
       <div className={styles['person-data-grid']}>
         <div>
           <PersonImage src="src/assets/person.jpg" />
-          <AddToContactsButton
-            name={personData ? `${personData.surname} ${personData.name}` : ''}
-            phone={personData?.mobileNumber}
-            email={personData?.email}
-            isDisabled={!personData}
-          />
+          {!isMobile ? (
+            addToContactsButton
+          ) : (
+            <div className={styles['mobile-action-buttons-wrapper']}>
+              {addToContactsButton}
+              <CallButton
+                phone={personData?.mobileNumber}
+                isDisabled={!personData}
+              />
+            </div>
+          )}
         </div>
         <div className={styles['person-data-wrapper']}>
-          <div className={styles['logo-wrapper']}>
-            {isLogoLoading && <Loader />}
-
-            <img
-              className={styles.image}
-              src={logoSrc}
-              alt=""
-              onLoad={() => setIsLogoLoading(false)}
-              style={{ visibility: isLogoLoading ? 'hidden' : 'visible' }}
-            />
-          </div>
-          <hr className={styles.hr} />
+          {!isMobile && logo}
+          {!isMobile && <hr className={styles.hr} />}
 
           {personData ? (
             <div className={styles['person-text-data']}>
@@ -45,8 +66,9 @@ export const PersonFrame = ({ personData, logoSrc }: PersonFrameProps) => {
                 <br />
                 {personData.name}
               </h2>
-
               <p className={styles['job-title']}>{personData.jobTitle}</p>
+
+              {isMobile && <hr className={styles.hr} />}
               <div className={styles['person-info-wrapper']}>
                 <IconWrapper iconSrc="src/assets/icons/mobile.svg">
                   <a href={`tel:${personData.mobileNumber}`}>
@@ -87,7 +109,7 @@ export const PersonFrame = ({ personData, logoSrc }: PersonFrameProps) => {
           )}
         </div>
       </div>
-      <div>
+      <div className={styles['footer-wrapper']}>
         <hr className={styles['footer-hr']} />
         <Footer socialLinks={personData?.socialLinks} />
       </div>

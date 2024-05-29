@@ -39,15 +39,35 @@
 .about-employee-button::before {
   display: inline-block;
   width: 1rem;
+  height: 1rem;
   height: fit-content;
   margin-right: 0.75rem;
-  content: url('/src/assets/icons/left-arrow.svg');
+  content: url('/src/assets/icons/left-arrow-white.svg');
 }
 
 .about-company-button::after {
   display: inline-block;
   width: 1rem;
+  height: 1rem;
   height: fit-content;
   margin-left: 0.75rem;
-  content: url('/src/assets/icons/right-arrow.svg');
+  content: url('/src/assets/icons/right-arrow-white.svg');
+}
+
+@media screen and (width <= 678px) {
+  .buttons-wrapper {
+    padding: 0 0.5rem;
+  }
+
+  .switch-frame-button {
+    color: @brand-black;
+  }
+
+  .about-employee-button::before {
+    content: url('/src/assets/icons/left-arrow-black.svg');
+  }
+
+  .about-company-button::after {
+    content: url('/src/assets/icons/right-arrow-black.svg');
+  }
 }

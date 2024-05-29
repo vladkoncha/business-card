@@ -9,5 +9,13 @@
 }
 
 .image {
+  width: 100%;
   object-fit: cover;
+}
+
+@media screen and (width <= 678px) {
+  .image-wrapper {
+    border-radius: 0;
+    aspect-ratio: 1;
+  }
 }

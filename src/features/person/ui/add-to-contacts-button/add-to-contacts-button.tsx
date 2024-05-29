@@ -1,4 +1,5 @@
-import styles from './styles.module.less';
+import { Button } from '@/shared/ui/button';
+
 import { AddToContactsButtonProps } from './types';
 
 export const AddToContactsButton = ({
@@ -25,12 +26,8 @@ END:VCARD`;
   };
 
   return (
-    <button
-      className={styles['add-contact-button']}
-      onClick={handleClick}
-      disabled={isDisabled}
-    >
+    <Button onClick={handleClick} disabled={isDisabled} styleType={'primary'}>
       добавить в контакты
-    </button>
+    </Button>
   );
 };

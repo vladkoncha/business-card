@@ -1,6 +1,7 @@
 @import '@/globals';
 
 @frame-padding: 2rem;
+@mobile-shift: -3rem;
 
 .person-frame-wrapper {
   position: relative;
@@ -43,6 +44,7 @@
   position: relative;
   right: 1.5rem;
   width: calc(100% + @frame-padding + 1.5rem);
+  border: 0.5px solid;
   background-color: @brand-black;
 }
 
@@ -108,5 +110,86 @@
   position: relative;
   right: @frame-padding;
   width: calc(100% + @frame-padding * 2);
+  border: 0.5px solid;
   margin-block-end: 1.5rem;
+}
+
+.mobile-action-buttons-wrapper {
+  position: relative;
+  top: @mobile-shift;
+  display: flex;
+  padding: 0 1rem;
+  gap: 0.8125rem;
+
+  & > * {
+    flex: 1;
+  }
+}
+
+@media screen and (width <= 678px) {
+  .person-frame-wrapper {
+    min-height: unset;
+    padding: @frame-padding 0;
+  }
+
+  .person-data-grid {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-block-end: 0;
+  }
+
+  .loader-wrapper {
+    height: 20rem;
+  }
+
+  .logo-wrapper {
+    margin-block-end: 1.65rem;
+  }
+
+  .person-data-wrapper {
+    position: relative;
+    top: @mobile-shift;
+    margin: 0 1rem;
+  }
+
+  .person-text-data {
+    border-radius: 0.5rem 0.5rem 0 0;
+    background-color: @brand-white;
+  }
+
+  .name {
+    padding: 1rem 1rem 0;
+    margin-block-end: 0.5rem;
+  }
+
+  .job-title {
+    padding: 0 1rem;
+    margin-block-end: 1rem;
+  }
+
+  .hr {
+    position: static;
+    width: 100%;
+    margin-block-end: 0.75rem;
+  }
+
+  .person-info-wrapper {
+    padding: 0 1rem 1rem;
+  }
+
+  .footer-hr {
+    position: static;
+    width: 100%;
+    margin-block-end: 1.5rem;
+  }
+
+  .footer-wrapper {
+    position: relative;
+    top: @mobile-shift;
+    border-radius: 0 0 0.5rem 0.5rem;
+    margin: 0 1rem;
+    background-color: @brand-white;
+    margin-block-end: @mobile-shift;
+  }
 }

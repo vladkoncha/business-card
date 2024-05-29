@@ -2,6 +2,7 @@
 @desktop-card-white: #f4f4f4;
 @brand-white: #fefefe;
 @brand-black: #060606;
+@mobile-background-white: #f5f5f5;
 
 @font-face {
   font-display: swap;
@@ -66,4 +67,10 @@ body {
 
 button {
   font-family: inherit;
+}
+
+@media screen and (width <= 678px) {
+  body {
+    background-color: @mobile-background-white;
+  }
 }
