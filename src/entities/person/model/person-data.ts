@@ -1,3 +1,5 @@
+import { SocialLinks } from '@/entities/footer/model/social-links';
+
 export interface PersonData {
   name: string;
   surname: string;
@@ -12,4 +14,5 @@ export interface PersonData {
   };
   birthdate: Date;
   degree: string;
+  socialLinks: SocialLinks;
 }

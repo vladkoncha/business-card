@@ -1,58 +1,36 @@
+import clsx from 'clsx';
+
+import { SocialLinks } from './model/social-links';
 import styles from './styles.module.less';
+import { FooterProps } from './types';
 
-const LINKS = [
-  {
-    href: 'https://telegram.org/',
-    imgSrc: 'src/assets/icons/footer/telegram.svg',
-  },
-  {
-    href: 'https://www.whatsapp.com/',
-    imgSrc: 'src/assets/icons/footer/whatsapp.svg',
-  },
-  {
-    href: 'https://www.viber.com/',
-    imgSrc: 'src/assets/icons/footer/viber.svg',
-  },
-  {
-    href: 'https://www.instagram.com/',
-    imgSrc: 'src/assets/icons/footer/instagram.svg',
-  },
-  {
-    href: 'https://vk.com/',
-    imgSrc: 'src/assets/icons/footer/vk.svg',
-  },
-  {
-    href: 'https://www.facebook.com/',
-    imgSrc: 'src/assets/icons/footer/facebook.svg',
-  },
-  {
-    href: 'https://www.youtube.com/',
-    imgSrc: 'src/assets/icons/footer/youtube.svg',
-  },
-  {
-    href: 'https://ok.ru/',
-    imgSrc: 'src/assets/icons/footer/ok.svg',
-  },
-  {
-    href: 'https://dzen.ru/',
-    imgSrc: 'src/assets/icons/footer/dzen.svg',
-  },
-  {
-    href: 'https://www.tiktok.com/',
-    imgSrc: 'src/assets/icons/footer/tiktok.svg',
-  },
-  {
-    href: 'https://www.linkedin.com/',
-    imgSrc: 'src/assets/icons/footer/linked-in.svg',
-  },
-];
+const LINKS_ICONS: SocialLinks = {
+  telegram: 'telegram.svg',
+  whatsapp: 'whatsapp.svg',
+  viber: 'viber.svg',
+  instagram: 'instagram.svg',
+  vk: 'vk.svg',
+  facebook: 'facebook.svg',
+  youtube: 'youtube.svg',
+  ok: 'ok.svg',
+  dzen: 'dzen.svg',
+  tiktok: 'tiktok.svg',
+  linkedIn: 'linked-in.svg',
+};
 
-export const Footer = () => {
+export const Footer = ({ socialLinks }: FooterProps) => {
   return (
     <footer className={styles.footer}>
-      {LINKS.map((link) => (
-        <a key={link.href} className={styles.link} href={link.href}>
-          <img className={styles.icon} src={link.imgSrc} />
+      {(Object.keys(LINKS_ICONS) as (keyof SocialLinks)[]).map((link) => (
+        <a
+          key={link}
+          className={clsx(styles.link, { [styles.disabled]: !socialLinks })}
+          href={socialLinks ? socialLinks[link] : ''}
+        >
+          <img
+            className={styles.icon}
+            src={`src/assets/icons/footer/${LINKS_ICONS[link]}`}
+          />
         </a>
       ))}
     </footer>

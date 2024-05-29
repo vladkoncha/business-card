@@ -1,3 +1,5 @@
+import { SocialLinks } from '@/entities/footer/model/social-links';
+
 export interface CompanyData {
   logoSrc: string;
   name: string;
@@ -12,4 +14,5 @@ export interface CompanyData {
   foundingDate: Date;
   clients: string[];
   fax: string;
+  socialLinks: SocialLinks;
 }

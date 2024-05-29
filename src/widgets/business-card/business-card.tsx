@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 
-import { useCompanyData } from '@/entities/company';
+import { CompanyFrame, useCompanyData } from '@/entities/company';
 import { PersonFrame, usePersonData } from '@/entities/person';
 
 import styles from './styles.module.less';
@@ -36,7 +36,10 @@ export const BusinessCard = () => {
           о компании
         </button>
       </div>
-      <PersonFrame personData={personData} logoSrc={companyData?.logoSrc} />
+      {currentFrame === 'person' && (
+        <PersonFrame personData={personData} logoSrc={companyData?.logoSrc} />
+      )}
+      {currentFrame === 'company' && <CompanyFrame companyData={companyData} />}
     </div>
   );
 };

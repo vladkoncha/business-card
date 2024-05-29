@@ -2,8 +2,7 @@
 
 @frame-padding: 2rem;
 
-.person-frame-wrapper {
-  position: relative;
+.company-frame-wrapper {
   display: flex;
   width: 100%;
   min-height: 43.5rem;
@@ -13,7 +12,7 @@
   background-color: @desktop-card-white;
 }
 
-.person-data-grid {
+.company-data-grid {
   display: grid;
   width: 100%;
   flex: 1;
@@ -22,44 +21,46 @@
   margin-block-end: 1.25rem;
 }
 
+.hr {
+  position: relative;
+  right: @frame-padding;
+  width: calc(100% + @frame-padding * 2);
+  background-color: @brand-black;
+  margin-block-start: calc(5.25rem - @frame-padding);
+}
+
+.left-column-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-block-start: 1.625rem;
+}
+
 .logo-wrapper {
   display: flex;
   overflow: hidden;
   width: 100%;
   max-width: 17.5rem;
-  height: 4rem;
+  height: 7rem;
   align-items: center;
   align-self: center;
-  justify-content: center;
+  padding: 2rem 2.5rem;
   border-radius: 0.5rem;
-  margin-block-end: 2.1875rem;
 }
 
 .image {
   height: 100%;
 }
 
-.hr {
-  position: relative;
-  right: 1.5rem;
-  width: calc(100% + @frame-padding + 1.5rem);
-  background-color: @brand-black;
-}
-
-.person-data-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
 .loader-wrapper {
   overflow: hidden;
   width: 100%;
-  height: 100%;
+  min-height: 7rem;
   border-radius: 0.5rem;
   margin-block-start: 1.5rem;
 }
 
-.person-text-data {
+.company-text-data {
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -74,23 +75,21 @@
   margin-block-end: 0.75rem;
 }
 
-.job-title {
-  color: #455773;
+.description {
+  color: @brand-black;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 120%;
-  margin-block-end: 1.375rem;
 }
 
-.person-info-wrapper {
+.company-info-wrapper {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  justify-content: space-between;
   color: @brand-black;
   font-size: 0.9375rem;
   font-weight: 400;
-  gap: 0.75rem;
+  gap: 1rem;
   line-height: 120%;
 
   & > * {

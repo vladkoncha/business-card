@@ -14,4 +14,17 @@ export const PERSON_DATA: PersonData = {
   },
   birthdate: new Date('01.01.1982'),
   degree: 'Звание, учёная степень',
+  socialLinks: {
+    telegram: 'https://telegram.org/',
+    whatsapp: 'https://www.whatsapp.com/',
+    viber: 'https://www.viber.com/',
+    instagram: 'https://www.instagram.com/',
+    vk: 'https://vk.com/',
+    facebook: 'https://www.facebook.com/',
+    youtube: 'https://www.youtube.com/',
+    ok: 'https://ok.ru/',
+    dzen: 'https://dzen.ru/',
+    tiktok: 'https://www.tiktok.com/',
+    linkedIn: 'https://www.linkedin.com/',
+  },
 };
