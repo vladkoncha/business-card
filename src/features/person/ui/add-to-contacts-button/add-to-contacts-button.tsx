@@ -1,4 +1,8 @@
+'use client';
+
+import { useIsMobile } from '@/shared/hooks/use-is-mobile';
 import { Button } from '@/shared/ui/button';
+import { IconWrapper } from '@/shared/ui/icon-wrapper';
 
 import { AddToContactsButtonProps } from './types';
 
@@ -8,6 +12,8 @@ export const AddToContactsButton = ({
   email,
   isDisabled,
 }: AddToContactsButtonProps) => {
+  const isMobile = useIsMobile();
+
   const handleClick = () => {
     const vcard = `BEGIN:VCARD
 VERSION:4.0
@@ -26,8 +32,27 @@ END:VCARD`;
   };
 
   return (
-    <Button onClick={handleClick} disabled={isDisabled} styleType={'primary'}>
-      добавить в контакты
-    </Button>
+    <>
+      {isMobile ? (
+        <Button
+          onClick={handleClick}
+          disabled={isDisabled}
+          styleType={'secondary'}
+        >
+          <IconWrapper iconSrc="./assets/icons/save-contact.svg" size="m">
+            сохранить визитку
+          </IconWrapper>
+        </Button>
+      ) : (
+        <Button
+          onClick={handleClick}
+          disabled={isDisabled}
+          styleType={'primary'}
+          style={{ marginBlockStart: '1rem' }}
+        >
+          добавить в контакты
+        </Button>
+      )}
+    </>
   );
 };
